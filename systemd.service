@@ -1,0 +1,16 @@
+#/etc/systemd/system/spotify-frontend.service
+
+[Unit]
+Description = spotify Frontend  
+After = systemd-user-sessions.service network.target sound.target
+
+[Service]
+User = spotify  
+Group = spotify  
+Type = simple  
+ExecStart = /usr/bin/xinit /usr/bin/dbus-launch --exit-with-session /usr/bin/chromium-browser --start-maximized --window-size=480,320 --window-position=0,0 --disable-restore-background-contents --noerordialogs --disable-session-crashed-bubble --disable-infobars --disable-pinch --overscroll-history-navigation=0 --incognito --kiosk http://127.0.0.1:5000 -- :0 -s 0 dpms -nocursor -nolisten tcp vt7  
+Restart = on-abort  
+RestartSec = 5
+
+[Install]
+WantedBy = multi-user.target
