@@ -1,2 +1,2 @@
 # embedded-web-only
-systemd config to open on boot only chromium in full screen and open 127.0.0.1 
+systemd service file to open chromium onboot in full screen without window manager and conect to 127.0.0.1  
